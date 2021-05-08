@@ -13,3 +13,5 @@ enum Message {
     Success = '成功了',
     Fail = '瓦拉那'
 }
+
+// 测试
