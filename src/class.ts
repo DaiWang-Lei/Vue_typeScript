@@ -83,7 +83,7 @@ class WorkFlow {
 new WorkFlow().step1().step2()
 
 class Myflow extends WorkFlow {
-    next(){
+    next() {
         return this;
     }
 }
@@ -94,46 +94,55 @@ new Myflow().next().step1().next().step2()
 
 
 // const list: object[] = [
-// const list = [
 
-//     {
-//         "x": 'x',
-//         "y": "y",
-//         "z": "z",
-//         "serialNumber": "F6H4AFB469",
-//         "lableName": "zg-xsf-x6",
-//         "ip": "10.182.31.13"
-//     },
-//     {
-//         "x": 'x',
-//         "y": "y",
-//         "z": "z",
-//         "serialNumber": "F6H4AFB497",
-//         "lableName": "zg-xsf-x7",
-//         "ip": "10.182.31.12"
-//     },
-//     {
-//         "x": 'x',
-//         "y": "y",
-//         "z": "z",
-//         "serialNumber": "F6H4AEH534",
-//         "lableName": "zg-xsf-x8",
-//         "ip": "10.182.31.11"
-//     },
-//     {
-//         "x": 'x',
-//         "y": "y",
-//         "z": "z",
-//         "serialNumber": "F6H4AFB564",
-//         "lableName": "zg-xsf-x9",
-//         "ip": "10.182.31.10"
-//     }
-// ]
+interface ListArray {
+    x: string,
+    y: string,
+    z: string,
+    serialNumber: string,
+    lableName: string,
+    ip: string
+}
+const list: ListArray[] = [
+
+    {
+        x: 'x',
+        y: "y",
+        z: "z",
+        serialNumber: "F6H4AFB469",
+        lableName: "zg-xsf-x6",
+        ip: "10.182.31.13"
+    },
+    {
+        x: 'x',
+        y: "y",
+        z: "z",
+        serialNumber: "F6H4AFB497",
+        lableName: "zg-xsf-x7",
+        ip: "10.182.31.12"
+    },
+    {
+        x: 'x',
+        y: "y",
+        z: "z",
+        serialNumber: "F6H4AEH534",
+        lableName: "zg-xsf-x8",
+        ip: "10.182.31.11"
+    },
+    {
+        x: 'x',
+        y: "y",
+        z: "z",
+        serialNumber: "F6H4AFB564",
+        lableName: "zg-xsf-x9",
+        ip: "10.182.31.10"
+    }
+]
 
 
-// const res = list.map((item) => {
-//     return { ip: item.ip, xxlableName: item.lableName, serName: item.serialNumber }
-// })
+const res = list.map((item) => {
+    return { ip: item.ip, xxlableName: item.lableName, serName: item.serialNumber }
+})
 // console.log(res);
 
 
