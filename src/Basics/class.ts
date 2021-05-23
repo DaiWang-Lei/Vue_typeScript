@@ -95,7 +95,7 @@ new Myflow().next().step1().next().step2()
 
 // const list: object[] = [
 
-interface ListArray {
+type Item = {
     x: string,
     y: string,
     z: string,
@@ -103,7 +103,11 @@ interface ListArray {
     lableName: string,
     ip: string
 }
-const list: ListArray[] = [
+type Something = Item & {
+    haha: string
+}
+
+const list: Item[] = [
 
     {
         x: 'x',

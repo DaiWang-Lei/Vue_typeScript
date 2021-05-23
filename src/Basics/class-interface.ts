@@ -14,7 +14,9 @@ class Asian implements Human {
 }
 
 interface Man extends Human {
-    run(): void;
+    run(): void
+    a:number
+    
 }
 
 interface Child {
@@ -29,7 +31,8 @@ let boy: Boy = {
     name: '',
     eat() { },
     run() { },
-    cry() { }
+    cry() { },
+    a
 }
 
 class Auto {
@@ -181,7 +184,21 @@ function area(s: Shape) {
         case 'circle':
             return Math.PI * s.r ** 2
         default:
-            return ((e:never)=>{throw new Error(e)})(s)
+            return ((e: never) => { throw new Error(e) })(s)
     }
 }
 console.log(area({ kind: 'circle', r: 1 }))
+
+
+// 索引类型
+let objIndex = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+function getValue(obj:any,keys:string[]){
+    return keys.map(key=>obj[key])
+}
+
+console.log(getValue(objIndex,['a','b','c']))
+console.log(getValue(objIndex,['e','f','c']))

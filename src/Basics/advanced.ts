@@ -144,5 +144,71 @@ let adlog2 = <U>(y: U): U => {
     return y
 }
 
-adlog1=adlog2
-adlog2=adlog1
+adlog1 = adlog2
+adlog2 = adlog1
+
+
+// 索引类型
+let objIndex1 = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+
+function getValueIndex<T, K extends keyof T>(obj: T, keys: K[]): T[K][] {
+    return keys.map(key => obj[key])
+}
+console.log(getValueIndex(objIndex1, ['a', 'b']))
+// console.log(getValueIndex(objIndex1,['e','b']))
+
+// 20映射类型
+type Obj = {
+    a: string,
+    b: number,
+    c: boolean
+}
+
+type ReadlonyObj = Readonly<Obj>
+
+type PartialObj = Partial<Obj>
+
+type PickObj = Pick<Obj, 'a' | 'b' | 'c'>
+
+type RecordObj = Record<'x' | 'y', Obj>
+
+// 21条件类型
+// T extends U ? X:Y
+type TypeName<T> =
+    T extends string ? 'string' :
+    T extends number ? 'number' :
+    T extends boolean ? 'boolean' :
+    T extends undefined ? 'undefined' :
+    T extends Function ? 'function' :
+    'object'
+
+type T1 = TypeName<string>
+type T2 = TypeName<string[]>
+
+// (A | B) extends U ？X : Y
+// (A extends U ? X : Y)| (B extends U ? X : Y)
+
+type T3 = TypeName<string | string[]>
+type Diff<T, U> = T extends U ? never : T
+
+type T4 = Diff<'a' | 'b' | 'c', 'a' | 'e' | 'c'>
+
+type NotNull<T> = Diff<T, undefined | null>
+type T5 = NotNull<string | number | undefined | null>
+
+
+// 过滤交集,取T中剩余的
+// Exclude<T, U>
+// 不为null/undefined
+// NonNullable<T>
+// 去交集
+// Extract<T,U>
+type T6 = Extract<'a'|'b'|"c",'b'|'e'>
+
+// 返回类型
+// ReturnType<T>
+type T7 = ReturnType<()=> string >
